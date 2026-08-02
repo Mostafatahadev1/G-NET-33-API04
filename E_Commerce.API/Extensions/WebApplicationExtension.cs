@@ -1,4 +1,4 @@
-﻿using E_Commerce.Domain.Common;
+﻿using E_Commerce.Domain.Contracts;
 
 namespace E_Commerce.API.Extensions
 {
