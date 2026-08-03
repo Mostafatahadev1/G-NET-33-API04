@@ -1,4 +1,7 @@
-﻿namespace E_Commerce.Application.Common
+﻿using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
+
+namespace E_Commerce.Application.Common
 {
     public sealed record Error(string Code, string Description, ErrorType ErrorType = ErrorType.Failure)
     {
@@ -36,6 +39,7 @@
 
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public  enum ErrorType
     {
         Failure  = 0,
