@@ -58,6 +58,11 @@ namespace E_Commerce.Application.Common
 
 
 
+        public static implicit operator Result<TValue>(TValue value) => Ok(value);
+
+        public static implicit operator Result<TValue>(Error error) => Fail(error);
+
+
 
 
 
