@@ -50,6 +50,7 @@ namespace E_Commerce.API.Controllers
         }
         // Get All Brands
 
+        [HttpGet("Brands")]
         public async Task<ActionResult<Result<IReadOnlyList<BrandDto>>>> GetAllBrands(CancellationToken ct)
         {
             return Ok(await _productService.GetAllBrandsAsync(ct));
