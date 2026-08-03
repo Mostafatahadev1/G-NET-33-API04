@@ -20,7 +20,8 @@ namespace E_Commerce.Application.Profiles
 
             CreateMap<Product, ProductDto>()
                 .ForMember(dst => dst.ProductBrand, opt => opt.MapFrom(src => src.productBrand.Name))
-                .ForMember(dst => dst.ProductType, opt => opt.MapFrom(src => src.productType.Name));
+                .ForMember(dst => dst.ProductType, opt => opt.MapFrom(src => src.productType.Name))
+                .ForMember(dst => dst.PictureUrl, opt => opt.MapFrom<PictureUrlResolver>());
 
 
 
