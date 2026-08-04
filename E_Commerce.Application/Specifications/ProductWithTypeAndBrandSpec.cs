@@ -1,4 +1,5 @@
-﻿using E_Commerce.Domain.Entities.Products;
+﻿using E_Commerce.Application.Common;
+using E_Commerce.Domain.Entities.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace E_Commerce.Application.Specifications
     internal class ProductWithTypeAndBrandSpec : BaseSpecification<Product, int>
     {
         // Get All 
-        public ProductWithTypeAndBrandSpec(int? BrandId, int? TypeId)
+        public ProductWithTypeAndBrandSpec(ProductQueryParams queryParams)
         //  : base(P => (BrandId ==null || P.BrandId == BrandId) &&(TypeId == null || P.TypeId == TypeId)) true 
 
-        : base(P => (!BrandId.HasValue  || P.BrandId == BrandId.Value) &&(!TypeId.HasValue || P.TypeId == TypeId.Value)) 
+        : base(P => (!queryParams.BrandId.HasValue  || P.BrandId == queryParams.BrandId.Value) 
+            &&(!queryParams.TypeId.HasValue || P.TypeId == queryParams.TypeId.Value)
+            && (string.IsNullOrWhiteSpace(queryParams.SearchValue) || P.Name.ToLower().Contains(queryParams.SearchValue.ToLower()))) 
 
 
         // BrandId Is Not Null =?> p=>p.BrandId == BrandId
