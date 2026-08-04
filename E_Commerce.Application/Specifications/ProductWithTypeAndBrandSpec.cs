@@ -10,7 +10,18 @@ namespace E_Commerce.Application.Specifications
     internal class ProductWithTypeAndBrandSpec : BaseSpecification<Product, int>
     {
         // Get All 
-        public ProductWithTypeAndBrandSpec() : base(null)
+        public ProductWithTypeAndBrandSpec(int? BrandId, int? TypeId)
+        //  : base(P => (BrandId ==null || P.BrandId == BrandId) &&(TypeId == null || P.TypeId == TypeId)) true 
+
+        : base(P => (!BrandId.HasValue  || P.BrandId == BrandId.Value) &&(!TypeId.HasValue || P.TypeId == TypeId.Value)) 
+
+
+        // BrandId Is Not Null =?> p=>p.BrandId == BrandId
+
+        // TypeId Is Not Null =?> p=>p.TypeId == TypeId
+
+        // BrandId And TypeId Is Not Null =?> p=>p.BrandId == BrandId && p.TypeId == TypeId
+
         {
             AddInclude(P => P.productType);
             AddInclude(P => P.productBrand);
