@@ -41,6 +41,18 @@ namespace E_Commerce.Infrastructure.Specifications
             }
 
 
+            if(Spec.OrderBy!=null)
+            {
+                query = query.OrderBy(Spec.OrderBy);
+            }
+
+            else if (Spec.OrderByDescending !=null) 
+            {
+                query = query.OrderByDescending(Spec.OrderByDescending);
+
+
+            }
+
 
             return query;
         }

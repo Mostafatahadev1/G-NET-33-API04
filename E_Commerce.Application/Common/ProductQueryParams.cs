@@ -14,6 +14,6 @@ namespace E_Commerce.Application.Common
 
         public string? SearchValue { get; set; }
 
-
+        public ProductSortingOptions Sort { get; set; }
     }
 }
