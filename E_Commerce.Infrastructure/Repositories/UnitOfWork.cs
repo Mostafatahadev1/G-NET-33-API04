@@ -15,7 +15,7 @@ namespace E_Commerce.Infrastructure.Repositories
         public IGenericRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : BaseEntity<TKey>
         {
             var typeName = typeof(TEntity).Name;
-            if (!repositories.TryGetValue(typeName, out object? value))
+            if (repositories.TryGetValue(typeName, out object? value))
                 return (IGenericRepository<TEntity, TKey>)value;
             else
             {
