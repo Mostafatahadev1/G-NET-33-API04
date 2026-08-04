@@ -21,7 +21,13 @@ namespace E_Commerce.Infrastructure.Specifications
 
             var query = inputQuery;
 
-            if(Spec.IncludeExpressions.Any())
+            if(Spec.Criteria != null)
+            {
+                query = query.Where(Spec.Criteria);
+            }  
+
+
+            if (Spec.IncludeExpressions.Any())
             {
                 // foreach (var includeExpression in Spec.IncludeExpressions)
                 //{

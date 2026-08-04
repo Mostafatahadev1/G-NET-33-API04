@@ -43,7 +43,9 @@ namespace E_Commerce.Application.Services
 
         public  async Task<Result<ProductDto>> GetProductByIdAsync(int id, CancellationToken ct = default)
         {
-            var Product =await _unitOfWork.GetRepository<Product , int>().GetByIdAsync(id, ct);
+            var spec = new ProductWithTypeAndBrandSpec(id);
+
+            var Product =await _unitOfWork.GetRepository<Product , int>().GetByIdAsync(spec, ct);
 
             if (Product == null)
                 return Error.NotFound("Product.NotFound ", $"Product With Id {id} Is NotFound ");

@@ -16,5 +16,8 @@ namespace E_Commerce.Domain.Contracts
         // Order 
         // Order By 
         // implementation => المكان اللي هيستخدمها => service => Application Layer 
+
+
+        Expression<Func<TEntity,bool>>? Criteria { get; }
     }
 }
