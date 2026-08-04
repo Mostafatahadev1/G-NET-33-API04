@@ -32,7 +32,7 @@ namespace E_Commerce.API
             var app = builder.Build();
             await app.SeedAndMigrateDataAsync();
 
-
+            // sdsdsd
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
