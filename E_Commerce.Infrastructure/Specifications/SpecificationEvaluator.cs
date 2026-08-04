@@ -54,6 +54,11 @@ namespace E_Commerce.Infrastructure.Specifications
             }
 
 
+            if(Spec.IsPaginated)
+            {
+                query = query.Skip(Spec.Take).Take(Spec.Take);
+            }
+
             return query;
         }
 

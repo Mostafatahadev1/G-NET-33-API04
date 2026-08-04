@@ -26,5 +26,13 @@ namespace E_Commerce.Domain.Contracts
         Expression<Func<TEntity, object>> OrderByDescending{ get; }
 
 
+         int Take { get; }
+
+         int  Skip { get; }
+
+        bool IsPaginated { get; }
+
+
+
     }
 }

@@ -53,6 +53,8 @@ namespace E_Commerce.Application.Specifications
                     break;
             }
 
+            ApplyPagination(queryParams.pageSize, queryParams.PageIndex);
+
         }
 
         //Get By Id
