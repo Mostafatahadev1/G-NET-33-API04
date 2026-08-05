@@ -15,6 +15,10 @@ namespace E_Commerce.Infrastructure.Repositories
     {
         public void Add(TEntity entity) => dbContext.Set<TEntity>().Add(entity);
 
+        public async Task<int> CountAsync(ISpecifications<TEntity, TKey> spec, CancellationToken ct = default)
+        {
+            return await SpecificationEvaluator.GreateQuery(dbContext.Set<TEntity>(), spec).CountAsync(ct);
+        }
         public async Task<IReadOnlyList<TEntity>> GetAllAsync(CancellationToken ct = default) => await dbContext.Set<TEntity>().ToListAsync(ct);
 
         public async Task<IReadOnlyList<TEntity>> GetAllAsync(ISpecifications<TEntity, TKey> Spec, CancellationToken ct = default)
