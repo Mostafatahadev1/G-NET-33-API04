@@ -8,11 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.29" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.10" />
+    <PackageReference Include="StackExchange.Redis" Version="3.1.13" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\E_Commerce.Application\E_Commerce.Application.csproj" />
     <ProjectReference Include="..\E_Commerce.Domain\E_Commerce.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>
